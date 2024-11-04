@@ -63,9 +63,10 @@ export class AuthController {
         const hashPassword = await bcrypt.hash(body.password, salt)
         const user = {
             id: uuid(),
-            name: body.email,
+            name: body.name,
             email: body.email,
-            password: hashPassword
+            password: hashPassword,
+            posts:[]
         }
         userData.push(user)
         writeUserData(JSON.stringify(userData))
